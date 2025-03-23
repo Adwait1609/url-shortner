@@ -120,4 +120,8 @@ Ensure `docker-compose.yml` is in the root folder (with MongoDB and Redis config
    ```json
    {"shortCode":"syRcDw","hits":2}
    ```
+## System Design and Architecture
+-Scalbility and load handling was handles using Nginx which balances load across three api servers(port:300) , which connets to MongoDB and Redis using Docker Compose\
+-Short Code and hits are stored in MongoDB and Redis handles caching\
+-Nginx uses round-robin routing to distribute requests evenly among the servers\
    

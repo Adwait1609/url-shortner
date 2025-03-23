@@ -28,4 +28,8 @@ async function updateOne(query, update) {
   return result;
 }
 
-module.exports = { create, findAll, findOne, updateOne };
+async function deleteOne(query) {
+  return await Url.deleteOne(query);
+}
+
+module.exports = { create, findAll, findOne, updateOne, deleteOne };

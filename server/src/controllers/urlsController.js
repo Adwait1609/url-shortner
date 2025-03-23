@@ -3,7 +3,7 @@ const { createShortenedUrl, getAllUrls, getUrlByShortenUrlKey } = require('../se
 async function getUrls(_request, reply) {
   try {
     const urls = await getAllUrls();
-    return reply.code(200).send(urls);
+    return reply.code(302).send(urls);
   } catch (error) {
     return reply.code(500).send('Failed to retrieve the list of URLs');
   }
@@ -16,7 +16,7 @@ async function getUrl(request, reply) {
     if (!originalUrl) {
       return reply.code(404).send('The requested shortened URL could not be found');
     }
-    return reply.code(200).send(originalUrl);
+    return reply.code(302).send(originalUrl);
   } catch (error) {
     return reply.code(500).send('Unable to retrieve the specified URL');
   }

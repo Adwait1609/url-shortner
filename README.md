@@ -109,7 +109,7 @@ Ensure `docker-compose.yml` is in the root folder (with MongoDB and Redis config
 
 3. **Redirect**
    ```bash
-   curl -v http://localhost/aB9kP_
+   curl -v http://localhost/syRcDw
    ```
    **Response**: `302`, `Location: https://summerofcode.withgoogle.com/`
 4. **Hits**

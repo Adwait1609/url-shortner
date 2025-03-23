@@ -30,20 +30,6 @@ A simple URL shortening service built for the GIVAI Software Engineering Interns
   sudo usermod -aG docker $USER && newgrp docker
   sudo systemctl enable docker.service
 ```
-
-### Setup Steps
-1. **Clone the Repo**
-   ```bash
-   git clone https://github.com/Adwait1609/url-shortner.git
-   cd url-shortner
-   ```
-2. **Start Services**
-   Ensure `docker-compose.yml` is in the root folder (with MongoDB and Redis configs).
-   ```bash
-   docker-compose up -d --build
-   # Runs MongoDB (port 27017) and Redis (port 6379)
-   ```
-
 ### MacOs
 
 Install Docker Desktop:\
@@ -65,8 +51,37 @@ Reboot your system when prompted\
 -Get the installer from [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)\
 -Enable WSL integration in docker
 
-
-
+### Setup Steps
+1. **Clone the Repo**
+```bash
+   git clone https://github.com/Adwait1609/url-shortner.git
+   cd url-shortner
+```
+2. **Add .env File in the root folder**:
+```bash
+   #.env
+   MONGODB_USER=user
+   MONGODB_PASSWORD=pass
+   MONGODB_DATABASE=urls
+   MONGODB_HOST=mongo
+   MONGODB_LOCAL_PORT=27017
+   MONGODB_DOCKER_PORT=27017
+   REDIS_HOST=redis
+   REDIS_LOCAL_PORT=6379
+   REDIS_DOCKER_PORT=6379
+   NODE_SERVER_HOST=0.0.0.0
+   NODE_SERVER_LOCAL_PORT=3000
+   NGINX_LOCAL_PORT=80
+   NGINX_DOCKER_PORT=80
+```
+3. **Start Services**
+Ensure `docker-compose.yml` is in the root folder (with MongoDB and Redis configs).
+```bash
+   docker-compose up -d --build
+   # check container using 
+   # docker ps
+   # docker-compose down (used to remove/stop contaniers/instances)
+```
 
 ## Testing APIs
 

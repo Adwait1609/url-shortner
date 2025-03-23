@@ -1,16 +1,11 @@
 
 # URL Shortener Service
 
-A simple URL shortening service built for the GIVAI Software Engineering Internship assignment. It shortens URLs, redirects to originals, tracks usage, and supports custom aliases.
+A simple URL shortening service built for the GIVAI Software Engineering Internship assignment. It shortens URLs, redirects to originals, tracks hits, supports custom aliases, improved user experience and scalability
 
 ## Local Setup
 
-### Prerequisites
-- Node.js (v18+)
-- Docker
-- npm
-
-# Install Docker and Docker Compose (If Not Present)
+## Install Docker and Docker Compose (If Not Present)
 ### Ubuntu/Linux
 
 1. **Install Docker**
@@ -49,17 +44,41 @@ A simple URL shortening service built for the GIVAI Software Engineering Interns
    # Runs MongoDB (port 27017) and Redis (port 6379)
    ```
 
+### MacOs
+
+Install Docker Desktop:\
+Download from Docker [Desktop for Mac](https://www.docker.com/products/docker-desktop/)\
+
+### Windows
+
+1. **WSL2 Installation**:
+````powershell
+wsl --install
+````
+Reboot your system when prompted\
+
+2. **Enable Virtualization**:\
+-Enter BIOS/UEFI during startup (usually via F2, F10, or DEL key)\
+-Enable Virtualization Technology (VT-x) or AMD-V\
+
+3. **Install and Configure Docker Desktop**:\
+-Get the installer from [Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)\
+-Enable WSL integration in docker
+
+
+
+
 ## Testing APIs
 
 1. **Shorten a URL**
    ```bash
    curl -X POST http://localhost/api/shorten \
         -H "Content-Type: application/json" \
-        -d '{"originalUrl": "https://google.com"}'
+        -d '{"originalUrl": "https://summerofcode.withgoogle.com/"}'
    ```
    **Response**:
    ```json
-   {"shortCode": "aB9kP_", "shortUrl": "http://localhost:3000/aB9kP_"}
+   {"shortCode": "syRcDw"}
    ```
 
 2. **Custom Alias**
@@ -70,11 +89,20 @@ A simple URL shortening service built for the GIVAI Software Engineering Interns
    ```
    **Response**:
    ```json
-   {"shortCode": "mygoogle", "shortUrl": "http://localhost:3000/mygoogle"}
+   {"shortCode": "mygoogle"}
    ```
 
 3. **Redirect**
    ```bash
    curl -v http://localhost/aB9kP_
    ```
-   **Response**: `302`, `Location: https://google.com`
+   **Response**: `302`, `Location: https://summerofcode.withgoogle.com/`
+4. **Hits**
+   ```bash
+   curl http://localhost/api/hits/syRcDw
+   ```
+   **Response**:
+   ```json
+   {"shortCode":"syRcDw","hits":2}
+   ```
+   

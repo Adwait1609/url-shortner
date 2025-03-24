@@ -87,8 +87,8 @@ Ensure `docker-compose.yml` is in the root folder (with MongoDB and Redis config
 
 1. **Shorten a URL**
    ```bash
-   curl -X POST http://localhost/api/shorten \
-        -H "Content-Type: application/json" \
+   curl -X POST http://localhost/api/shorten 
+        -H "Content-Type: application/json" 
         -d '{"originalUrl": "https://summerofcode.withgoogle.com/"}'
    ```
    **Response**:
@@ -98,8 +98,8 @@ Ensure `docker-compose.yml` is in the root folder (with MongoDB and Redis config
 
 2. **Custom Alias**
    ```bash
-   curl -X POST http://localhost/api/shorten \
-        -H "Content-Type: application/json" \
+   curl -X POST http://localhost/api/shorten 
+        -H "Content-Type: application/json" 
         -d '{"originalUrl": "https://google.com", "alias": "mygoogle"}'
    ```
    **Response**:
@@ -132,8 +132,8 @@ awake-amazement-productioation-prn.up.railway.app
 Can make similar API request on using domain name
 **Shorten a URL**
    ```bash
-   curl -X POST http://awake-amazement-productioation-prn.up.railway.app/api/shorten \
-        -H "Content-Type: application/json" \
+   curl -X POST http://awake-amazement-productioation-prn.up.railway.app/api/shorten 
+        -H "Content-Type: application/json" 
         -d '{"originalUrl": "https://summerofcode.withgoogle.com/"}'
    ```
    **Response**:

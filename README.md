@@ -123,5 +123,21 @@ Ensure `docker-compose.yml` is in the root folder (with MongoDB and Redis config
 ## System Design and Architecture
 -Scalability and load handling was handles using Nginx which balances load across three api servers(port:300) , which connets to MongoDB and Redis using Docker Compose\
 -Short Code and hits are stored in MongoDB and Redis handles caching\
--Nginx uses round-robin routing to distribute requests evenly among the servers\
+-Nginx uses round-robin routing to distribute requests evenly among the servers
+
+This repo is specifically configured for local setup , but making some tweaks I have deployed it on this domain 
+```bash
+awake-amazement-productioation-prn.up.railway.app
+```
+Can make similar API request on using domain name
+**Shorten a URL**
+   ```bash
+   curl -X POST http://awake-amazement-productioation-prn.up.railway.app/api/shorten \
+        -H "Content-Type: application/json" \
+        -d '{"originalUrl": "https://summerofcode.withgoogle.com/"}'
+   ```
+   **Response**:
+   ```json
+   {"shortCode": "syRcDw"}
+   ```
    

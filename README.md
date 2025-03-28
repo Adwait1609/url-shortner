@@ -87,7 +87,7 @@ Ensure `docker-compose.yml` is in the root folder (with MongoDB and Redis config
 
 1. **Shorten a URL**
    ```bash
-   curl -X POST http://localhost:3000/api/shorten -H "Content-Type: application/json" -d '{"originalUrl": "https://summerofcode.withgoogle.com/"}'
+   curl -X POST http://localhost/api/shorten -H "Content-Type: application/json" -d '{"originalUrl": "https://summerofcode.withgoogle.com/"}'
    ```
    **Response**:
    ```json
